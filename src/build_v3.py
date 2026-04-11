@@ -1426,7 +1426,7 @@ def p29_email_signature():
 <!-- Email mockup floating on the right — straight, no rotation -->
 <div style="position:absolute;right:30mm;top:50%;transform:translateY(-50%);
   width:150mm;background:white;padding:10mm 14mm;
-  box-shadow:0 30px 80px rgba(0,0,0,0.5),0 10px 30px rgba(0,0,0,0.3);"">
+  box-shadow:0 30px 80px rgba(0,0,0,0.5),0 10px 30px rgba(0,0,0,0.3);">
   <!-- Browser chrome -->
   <div style="position:absolute;top:-8mm;left:0;right:0;height:8mm;background:#2C2C2C;
     display:flex;align-items:center;padding-left:4mm;gap:2mm;">
@@ -1494,7 +1494,7 @@ def p30_invoice():
 <!-- Floating invoice document — straight, centered -->
 <div style="position:absolute;left:50%;top:50%;transform:translate(-42%,-48%);
   width:140mm;background:white;padding:10mm 12mm;
-  box-shadow:0 30px 80px rgba(0,0,0,0.5),0 10px 30px rgba(0,0,0,0.3);"">
+  box-shadow:0 30px 80px rgba(0,0,0,0.5),0 10px 30px rgba(0,0,0,0.3);">
   <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6mm;">
     <div style="font-family:{FAM};font-size:18px;font-weight:900;color:{NEGRO};">
       {BRAND}<span style="color:{LACRE};">.</span>
