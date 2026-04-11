@@ -1,0 +1,16 @@
+# Generated (regenerable con python3 src/build_v3.py + toolkit.generate_pdf)
+dist/*.pdf
+dist/*.html
+
+# QA screenshots (regenerables)
+dist/v3-qa*/
+
+# Python
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+
+# Explorations (bocetos historicos, no entregables)
+explorations/
