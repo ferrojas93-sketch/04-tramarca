@@ -34,7 +34,7 @@ FONT_LINKS = """\
 BRAND      = "TRAMARCA"
 DESCRIPTOR = "Tu marca, sin improvisar."
 EDITION    = "Primera edición · Abril 2026"
-TOTAL      = 34
+TOTAL      = 45   # v4 — 11 páginas nuevas añadidas (F7/S6/V3/V6/I7/A8/O1/O2/O3/V9 + divider)
 
 # Sections — v3 condensada (34 páginas)
 SECTIONS = [

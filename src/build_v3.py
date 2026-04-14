@@ -1747,7 +1747,7 @@ def p33_contact():
 </div>"""
 
     body = split_page(left, right, left_bg=NEGRO, right_bg=CARBON, ratio="55% 45%")
-    return page_shell(body, 33, bg=NEGRO, dark=True, no_furniture=True)
+    return page_shell(body, 44, bg=NEGRO, dark=True, no_furniture=True)
 
 
 def p34_back_cover():
@@ -1790,7 +1790,581 @@ def p34_back_cover():
   <span>hola@tramarca.es</span>
   <span>{EDITION}</span>
 </div>"""
-    return page_shell(body, 34, bg=NEGRO, dark=True, no_furniture=True)
+    return page_shell(body, 45, bg=NEGRO, dark=True, no_furniture=True)
+
+
+# ══════════════════════════════════════════════════════════════
+# TRAMARCA v4 — NUEVOS CAPÍTULOS (11 páginas añadidas)
+# F7 Axis · S6 Tokens · V3 What we are · V6 Anti-patterns
+# I7 Primitivos · A8 Editorial
+# XI Operaciones: O1 Governance · O2 Versioning · O3 Legal
+# V9 TL;DR
+# ══════════════════════════════════════════════════════════════
+
+def p32b_axis_declaration():
+    """F7 — Positioning Axis. Declara explícitamente el axis sistematico."""
+    axes = [
+        ("sistemático", True,  "Preciso, sobrio, confianza. El diseño desaparece para que la información hable."),
+        ("bold",         False, "Distintivo, memorable, con personalidad. El diseño es parte del mensaje."),
+        ("híbrido",      False, "Sistema sobrio con momentos de personalidad controlada."),
+        ("voice-first",  False, "La voz es el sistema. 60% copy, 40% visual."),
+        ("service-op.",  False, "Aplicación física dominante. Señalética, vehículos, operaciones."),
+    ]
+    rows = ""
+    for name, active, desc in axes:
+        border = f"border-left:3px solid {LACRE};" if active else f"border-left:1px solid {CENIZA};"
+        weight = "font-weight:700;" if active else "font-weight:400;"
+        color_name = NEGRO if active else PIEDRA
+        marker = f'<span style="font-family:{MONO};font-size:8px;font-weight:700;color:{LACRE};margin-left:4mm;"> ← Tramarca</span>' if active else ""
+        rows += f"""\
+<div style="{border}padding:4mm 6mm;margin-bottom:3mm;background:{'rgba(196,85,58,0.05)' if active else 'transparent'};">
+  <div style="display:flex;align-items:baseline;gap:4mm;">
+    <span style="font-family:{FAM};font-size:14px;{weight}color:{color_name};">{name}</span>
+    {marker}
+  </div>
+  <div style="font-family:{FAM};font-size:10px;color:{PIEDRA};margin-top:1mm;line-height:1.5;">{desc}</div>
+</div>"""
+
+    body = f"""\
+<div style="position:absolute;left:24mm;top:28mm;right:24mm;bottom:20mm;
+  display:grid;grid-template-columns:1fr 1.2fr;gap:14mm;">
+  <div>
+    {titulo("Positioning Axis", 34)}
+    <div style="font-family:{FAM};font-size:12px;color:{PIEDRA};line-height:1.6;margin-bottom:8mm;">
+      El axis no es un estilo. Es la decision estructural que determina
+      la logica de todo lo que viene despues — grids, tipografia,
+      densidad, entregables, paleta de voz<span style="color:{LACRE};">.</span>
+    </div>
+    <div style="font-family:{MONO};font-size:9px;font-weight:700;
+      color:{LACRE};letter-spacing:2px;text-transform:uppercase;margin-bottom:6mm;">
+      Tramarca usa
+    </div>
+    <div style="font-family:{FAM};font-size:42px;font-weight:900;
+      line-height:0.9;color:{NEGRO};margin-bottom:8mm;">
+      sistemático<span style="color:{LACRE};font-size:52px;">.</span>
+    </div>
+    <div style="font-family:{FAM};font-size:11px;color:{PIEDRA};line-height:1.6;">
+      Grids Swiss estrictos. Tipografia tabular. Hairlines.
+      Paleta restringida. Ningun decorativo sin funcion.
+      La marca se lee, no se admira<span style="color:{LACRE};">.</span>
+    </div>
+  </div>
+  <div>
+    <div class="eyebrow" style="margin-bottom:6mm;">Los 5 axes del sistema Tramarca</div>
+    {rows}
+  </div>
+</div>"""
+    return page_shell(body, 33, section="II · Fundamentos", bg=PAPEL)
+
+
+def p32c_tokens_semanticos():
+    """S6 — Tokens de color con rol semántico."""
+    tokens = [
+        ("--color-bg",          NEGRO,   "#0C0C0C", "Fondo principal. Lienzo de toda pieza dark."),
+        ("--color-surface",     "#1A1A1A","#1A1A1A", "Superficie elevada sobre bg. Cards, modales."),
+        ("--color-text-primary",PAPEL,   "#F4F0EB", "Texto primario sobre bg oscuro."),
+        ("--color-text-secondary","#7A7672","#7A7672","Texto secundario, metadatos, captions."),
+        ("--color-accent",      LACRE,   "#C4553A", "Firma Tramarca. 10% max superficie. Nunca en bloque grande."),
+        ("--color-border",      "#B5B1AC","#B5B1AC", "Separadores, bordes sutiles. 0.5px standard."),
+        ("--color-bg-light",    PAPEL,   "#F4F0EB", "Fondo de paginas light. Solo modo editorial."),
+    ]
+    rows = ""
+    for token, color_val, hex_code, desc in tokens:
+        # Swatch
+        text_on_swatch = PAPEL if color_val in (NEGRO, LACRE, "#1A1A1A") else NEGRO
+        swatch = f'<div style="width:12mm;height:12mm;background:{color_val};flex-shrink:0;border:0.5px solid {CENIZA};"></div>'
+        rows += f"""\
+<div style="display:grid;grid-template-columns:14mm 1fr 22mm;gap:3mm;
+  align-items:center;padding:3mm 0;border-bottom:0.5px solid {CENIZA};">
+  {swatch}
+  <div>
+    <div style="font-family:{MONO};font-size:8px;font-weight:700;color:{LACRE};">{token}</div>
+    <div style="font-family:{FAM};font-size:9px;color:{PIEDRA};margin-top:0.5mm;">{desc}</div>
+  </div>
+  <div style="font-family:{MONO};font-size:8px;color:{PIEDRA};text-align:right;">{hex_code}</div>
+</div>"""
+
+    body = f"""\
+<div style="position:absolute;left:24mm;top:28mm;right:24mm;bottom:20mm;
+  display:grid;grid-template-columns:1fr 1fr;gap:14mm;">
+  <div>
+    {titulo("Tokens de color", 34)}
+    <div style="font-family:{FAM};font-size:11px;color:{PIEDRA};line-height:1.6;margin-bottom:6mm;">
+      Cada color tiene un rol semantico. El token define el CUANDO, no el QUE.
+      Usar el color correcto en el contexto equivocado rompe el sistema
+      aunque sea el hex correcto<span style="color:{LACRE};">.</span>
+    </div>
+    <div style="font-family:{MONO};font-size:8px;font-weight:700;
+      color:{LACRE};letter-spacing:2px;text-transform:uppercase;margin-bottom:4mm;">
+      Regla de uso
+    </div>
+    <div style="font-family:{FAM};font-size:28px;font-weight:900;
+      line-height:1.1;color:{NEGRO};margin-bottom:6mm;">
+      Token primero.<br>Hex, nunca<span style="color:{LACRE};font-size:36px;">.</span>
+    </div>
+    <div style="background:{NEGRO};padding:12px 16px;margin-top:4mm;">
+      <div style="font-family:{MONO};font-size:8px;color:{LACRE};margin-bottom:4px;">CSS correcto</div>
+      <div style="font-family:{MONO};font-size:9px;color:{PAPEL};line-height:1.8;">
+        color: var(--color-accent);<br>
+        background: var(--color-bg);<br>
+        border-color: var(--color-border);
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="eyebrow" style="margin-bottom:4mm;">Sistema completo</div>
+    {rows}
+  </div>
+</div>"""
+    return page_shell(body, 34, section="V · Color", bg=PAPEL)
+
+
+def p32d_what_we_are():
+    """V3 — What we are / What we are not. Binario de voz."""
+    somos = [
+        "Una metodologia documentada.",
+        "Directos. Siempre punto final.",
+        "El orden que tu equipo necesitaba.",
+        "Evidencia, no promesas.",
+        "Breves cuando el mensaje es claro.",
+        "Una agencia sin reuniones innecesarias.",
+        "El que te dice lo que no quieres oir.",
+    ]
+    no_somos = [
+        "Una agencia creativa de branding 360.",
+        "Los que te inspiramos con moodboards.",
+        "Holisticos, disruptivos ni sinergeticos.",
+        "Los que hacemos logotipos.",
+        "Una solucion para todos los presupuestos.",
+        "Los que te convencemos de nada.",
+        "La agencia con la que hareis algo bonito.",
+    ]
+    somos_html = "".join(
+        f'<div style="padding:3mm 0;border-bottom:0.5px solid rgba(196,85,58,0.3);'
+        f'font-family:{FAM};font-size:13px;font-weight:500;color:{PAPEL};line-height:1.4;">'
+        f'<span style="color:{LACRE};font-family:{MONO};font-size:9px;margin-right:4mm;">{i:02d}</span>'
+        f'{txt}</div>'
+        for i, txt in enumerate(somos, 1)
+    )
+    no_html = "".join(
+        f'<div class="struck" style="padding:3mm 0;border-bottom:0.5px solid rgba(181,177,172,0.2);'
+        f'font-family:{FAM};font-size:13px;font-weight:400;color:{PIEDRA};line-height:1.4;">{txt}</div>'
+        for txt in no_somos
+    )
+    body = f"""\
+<div class="noise-heavy" style="position:absolute;inset:0;"></div>
+<div style="position:absolute;left:24mm;top:28mm;right:24mm;bottom:20mm;
+  display:grid;grid-template-columns:1fr 1fr;gap:14mm;">
+  <div>
+    {titulo("Somos", 52, color=PAPEL)}
+    {somos_html}
+  </div>
+  <div>
+    <div class="titulo" style="font-size:52px;color:{PIEDRA};margin-bottom:10mm;line-height:0.9;">
+      No somos<span style="color:{LACRE};font-size:62px;">.</span>
+    </div>
+    {no_html}
+  </div>
+</div>"""
+    return page_shell(body, 35, section="VII · Voz", bg=NEGRO, dark=True)
+
+
+def p32e_antipatrones():
+    """V6 — Anti-patterns de copywriting. Lo que nunca se escribe."""
+    patterns = [
+        ("Exclamaciones entusiastas",
+         "\"¡Transformamos tu marca!\"",
+         "\"Producimos el manual. Tu marca, por escrito.\""),
+        ("Adjetivos sin sustancia",
+         "\"Una solucion innovadora y disruptiva...\"",
+         "\"34 paginas. Un solo formato. Entregado en 5 dias.\""),
+        ("Primera persona plural corporativa",
+         "\"En Tramarca creemos que el branding...\"",
+         "\"El branding sin manual es improvisacion.\""),
+        ("Metaforas vacias",
+         "\"Ponemos tu marca en el mapa.\"",
+         "\"Decidimos que colores. Que tipografia. Que tono.\""),
+        ("Pregunta retorica sin punto",
+         "\"Quien necesita un manual de marca?\"",
+         "\"Cualquier empresa con mas de un empleado.\""),
+    ]
+    rows = ""
+    for title_text, bad, good in patterns:
+        rows += f"""\
+<div style="margin-bottom:5mm;padding:4mm 5mm;background:{PAPEL};">
+  <div style="font-family:{MONO};font-size:8px;font-weight:700;color:{LACRE};
+    letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2mm;">{title_text}</div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:6mm;">
+    <div>
+      <div class="struck" style="font-family:{FAM};font-size:10px;color:{PIEDRA};
+        line-height:1.5;">{bad}</div>
+    </div>
+    <div>
+      <div style="font-family:{FAM};font-size:10px;color:{NEGRO};font-weight:600;
+        line-height:1.5;border-left:2px solid {LACRE};padding-left:6px;">{good}</div>
+    </div>
+  </div>
+</div>"""
+
+    body = f"""\
+<div style="position:absolute;left:24mm;top:28mm;right:24mm;bottom:20mm;">
+  <div style="display:grid;grid-template-columns:1fr 2fr;gap:14mm;margin-bottom:8mm;">
+    <div>
+      {titulo("Anti-patrones", 34)}
+      <div style="font-family:{FAM};font-size:11px;color:{PIEDRA};line-height:1.6;margin-bottom:6mm;">
+        Estas construcciones existen en el mercado.
+        No en las comunicaciones de Tramarca<span style="color:{LACRE};">.</span>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2mm;margin-top:6mm;">
+        <div style="background:{NEGRO};padding:8px 12px;">
+          <div style="font-family:{MONO};font-size:7px;color:{CENIZA};margin-bottom:2px;">Asi no</div>
+          <div style="width:18mm;height:1.5px;background:{LACRE};transform:rotate(-5deg);"></div>
+        </div>
+        <div style="background:rgba(196,85,58,0.08);padding:8px 12px;border-left:2px solid {LACRE};">
+          <div style="font-family:{MONO};font-size:7px;color:{LACRE};margin-bottom:2px;">Asi si</div>
+          <div style="font-family:{FAM};font-size:9px;color:{NEGRO};font-weight:700;">Directo. Punto.</div>
+        </div>
+      </div>
+    </div>
+    <div>{rows}</div>
+  </div>
+</div>"""
+    return page_shell(body, 36, section="VII · Voz", bg=PAPEL)
+
+
+def p32f_primitivos_graficos():
+    """I7 — Primitivos gráficos de Tramarca. Los elementos que se repiten."""
+    prims = [
+        ("El slash diagonal", "LACRE #C4553A · transform: rotate(-6deg)",
+         "El gesto de corte. Rompe la horizontalidad. Aparece en portadas, dividers, separadores. Nunca horizontal. Nunca vertical."),
+        ("El punto final lacre", "LACRE #C4553A · font-size: escala-titulo × 1.2",
+         "La firma visual de Tramarca. Refuerza el caracter directo de la voz. Aparece al final de cada titulo display. Solo uno por spread."),
+        ("El ruido (noise texture)", "SVG feTurbulence · opacity 0.06-0.18",
+         "Humaniza la frialdad del sistema. Siempre sobre fondos oscuros NEGRO. Nunca sobre PAPEL — pierde legibilidad."),
+        ("La monoespaciada de servicio", "IBM Plex Mono · 7-9px · letter-spacing 2px",
+         "Metadatos, footers, eyebrows, numeracion. Todo lo funcional, tecnico, de sistema. Jamas en copy de venta."),
+        ("El hairline", "border: 0.5px solid · CENIZA o LACRE",
+         "Separacion sin peso visual. Estructura sin imposicion. Las lineas de 1px rompen; las de 0.5px organizan."),
+    ]
+    rows = ""
+    for i, (name, spec, desc) in enumerate(prims, 1):
+        rows += f"""\
+<div style="display:grid;grid-template-columns:6mm 1fr;gap:4mm;
+  padding:4mm 0;border-bottom:0.5px solid {CENIZA};">
+  <div style="font-family:{MONO};font-size:9px;font-weight:700;color:{LACRE};
+    padding-top:1mm;">{i:02d}</div>
+  <div>
+    <div style="font-family:{FAM};font-size:13px;font-weight:700;color:{NEGRO};margin-bottom:1mm;">{name}</div>
+    <div style="font-family:{MONO};font-size:8px;color:{LACRE};margin-bottom:2mm;">{spec}</div>
+    <div style="font-family:{FAM};font-size:10px;color:{PIEDRA};line-height:1.6;">{desc}</div>
+  </div>
+</div>"""
+
+    body = f"""\
+<div style="position:absolute;left:24mm;top:28mm;right:24mm;bottom:20mm;
+  display:grid;grid-template-columns:1fr 1.4fr;gap:14mm;">
+  <div>
+    {titulo("Primitivos graficos", 30)}
+    <div style="font-family:{FAM};font-size:11px;color:{PIEDRA};line-height:1.6;margin-bottom:6mm;">
+      Un primitivo no es una decoracion.
+      Es un elemento que el espectador asocia a Tramarca
+      incluso sin ver el logotipo<span style="color:{LACRE};">.</span>
+    </div>
+    <!-- Demo visual primitivos -->
+    <div style="position:relative;height:50mm;background:{NEGRO};overflow:hidden;margin-top:4mm;">
+      <div class="noise-heavy" style="position:absolute;inset:0;"></div>
+      <div style="position:absolute;left:-10%;top:60%;width:120%;height:0.5px;
+        background:{LACRE};transform:rotate(-6deg);"></div>
+      <div style="position:absolute;bottom:12px;left:16px;right:16px;
+        display:flex;justify-content:space-between;
+        font-family:{MONO};font-size:6px;color:rgba(244,240,235,0.3);">
+        <span>tramarca.es</span><span>Manual de marca · v4</span>
+      </div>
+      <div style="position:absolute;top:12px;left:16px;
+        font-family:{FAM};font-size:22px;font-weight:900;color:{PAPEL};line-height:1;">
+        Sistema<span style="color:{LACRE};font-size:28px;">.</span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="eyebrow" style="margin-bottom:4mm;">Los 5 primitivos</div>
+    {rows}
+  </div>
+</div>"""
+    return page_shell(body, 37, section="VIII · Arte", bg=PAPEL)
+
+
+def p32g_editorial_guidelines():
+    """A8 — Guía editorial. Propuestas, posts, case studies."""
+    formats = [
+        ("Propuesta comercial", "Sobre PAPEL. Satoshi 11px body. Grid 2 columnas. Header lacre hairline.",
+         "Nunca portrait. Nunca fondo negro. La propuesta es un documento de trabajo."),
+        ("Post LinkedIn / Instagram", "Texto primero, imagen de soporte. Max 3 lineas en la imagen. Nunca stock photos.",
+         "El copy es la imagen. La foto refuerza, no reemplaza."),
+        ("Case study / portfolio", "Estructura: problema → decision → resultado con metricas. Max 800 palabras.",
+         "Sin adjetivos que el cliente no haya dicho. Solo hechos y numeros."),
+        ("Email de contacto / seguimiento", "Asunto: [accion] + [nombre]. Body: max 4 lineas. 1 CTA. Firma sin imagen.",
+         "El email no vende. Abre la puerta. El manual cierra."),
+    ]
+    rows = ""
+    for fmt_name, rules, anti in formats:
+        rows += f"""\
+<div style="margin-bottom:5mm;padding:4mm 5mm;border-left:2px solid {LACRE};">
+  <div style="font-family:{FAM};font-size:12px;font-weight:700;color:{NEGRO};margin-bottom:2mm;">{fmt_name}</div>
+  <div style="font-family:{FAM};font-size:10px;color:{NEGRO};line-height:1.6;margin-bottom:2mm;">{rules}</div>
+  <div style="font-family:{MONO};font-size:8px;color:{PIEDRA};line-height:1.5;">
+    <span style="color:{LACRE};font-weight:700;">Evitar: </span>{anti}
+  </div>
+</div>"""
+
+    body = f"""\
+<div style="position:absolute;left:24mm;top:28mm;right:24mm;bottom:20mm;
+  display:grid;grid-template-columns:1fr 1.4fr;gap:14mm;">
+  <div>
+    {titulo("Editorial", 34)}
+    <div style="font-family:{FAM};font-size:11px;color:{PIEDRA};line-height:1.6;margin-bottom:6mm;">
+      Cada formato editorial de Tramarca tiene su propia logica.
+      La coherencia no es que todo se parezca —
+      es que todo sea igual de deliberado<span style="color:{LACRE};">.</span>
+    </div>
+    {pull_quote("El mejor texto de Tramarca siempre podria ser mas corto.")}
+  </div>
+  <div>
+    <div class="eyebrow" style="margin-bottom:6mm;">Formatos y reglas</div>
+    {rows}
+  </div>
+</div>"""
+    return page_shell(body, 38, section="IX · Aplicaciones", bg=PAPEL)
+
+
+def p32h_operations_divider():
+    """Section XI — Operaciones. Dark divider."""
+    return divider("11", "XI", "Operaciones",
+                   "Como funciona este sistema a largo plazo.", pg=39)
+
+
+def p32i_governance():
+    """O1 — Governance. Quién puede qué."""
+    permisos = [
+        ("Usar el logo en materiales de la empresa",       "Todo el equipo",       "Sin restriccion"),
+        ("Adaptar templates de redes sociales",            "Marketing / CEO",      "Sin restriccion"),
+        ("Crear nuevas aplicaciones de marca",             "CEO + Tramarca",       "Requiere validacion"),
+        ("Modificar paleta de color",                      "Solo CEO + Tramarca",  "Version nueva del manual"),
+        ("Cambiar tipografia o logo",                      "Solo Tramarca",        "Requiere brief nuevo"),
+        ("Ceder uso de marca a terceros / partners",       "Solo CEO",             "Requiere contrato"),
+    ]
+    rows = ""
+    for accion, quien, req in permisos:
+        rows += f"""\
+<div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:4mm;
+  padding:3mm 0;border-bottom:0.5px solid {CENIZA};">
+  <div style="font-family:{FAM};font-size:10px;color:{NEGRO};">{accion}</div>
+  <div style="font-family:{MONO};font-size:8px;color:{PIEDRA};">{quien}</div>
+  <div style="font-family:{MONO};font-size:8px;color:{'#C4553A' if 'Requiere' in req else PIEDRA};">{req}</div>
+</div>"""
+
+    body = f"""\
+<div style="position:absolute;left:24mm;top:28mm;right:24mm;bottom:20mm;
+  display:grid;grid-template-columns:1fr 1.6fr;gap:14mm;">
+  <div>
+    {titulo("Governance", 34)}
+    <div style="font-family:{FAM};font-size:11px;color:{PIEDRA};line-height:1.6;margin-bottom:6mm;">
+      Un manual sin governance es un documento.
+      Un manual con governance es un sistema<span style="color:{LACRE};">.</span>
+      Estas reglas definen quien puede cambiar que y con que proceso.
+    </div>
+    <div style="background:rgba(196,85,58,0.08);border-left:3px solid {LACRE};
+      padding:12px 16px;margin-top:4mm;">
+      <div style="font-family:{MONO};font-size:8px;font-weight:700;
+        color:{LACRE};letter-spacing:1px;margin-bottom:4px;">PROCESO DE CAMBIO</div>
+      <div style="font-family:{FAM};font-size:10px;color:{NEGRO};line-height:1.6;">
+        1. Solicitud escrita a Tramarca<br>
+        2. Review de impacto sistemico<br>
+        3. Version nueva del manual<br>
+        4. Comunicacion al equipo
+      </div>
+    </div>
+  </div>
+  <div>
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:4mm;
+      padding:2mm 0;border-bottom:1px solid {NEGRO};margin-bottom:2mm;">
+      <div style="font-family:{MONO};font-size:8px;font-weight:700;color:{LACRE};letter-spacing:1px;">ACCION</div>
+      <div style="font-family:{MONO};font-size:8px;font-weight:700;color:{LACRE};letter-spacing:1px;">QUIEN</div>
+      <div style="font-family:{MONO};font-size:8px;font-weight:700;color:{LACRE};letter-spacing:1px;">REQUIERE</div>
+    </div>
+    {rows}
+  </div>
+</div>"""
+    return page_shell(body, 40, section="XI · Operaciones", bg=PAPEL)
+
+
+def p32j_versioning():
+    """O2 — Versionado. N.M notation, change log."""
+    body = f"""\
+<div style="position:absolute;left:24mm;top:28mm;right:24mm;bottom:20mm;
+  display:grid;grid-template-columns:1fr 1fr;gap:14mm;">
+  <div>
+    {titulo("Versionado", 34)}
+    <div style="font-family:{FAM};font-size:11px;color:{PIEDRA};line-height:1.6;margin-bottom:8mm;">
+      Este manual es un sistema vivo. Cada actualizacion tiene numero,
+      fecha y razon documentada. Las versiones anteriores se marcan
+      como obsoletas, no se borran<span style="color:{LACRE};">.</span>
+    </div>
+    <div style="background:{NEGRO};padding:20px 24px;margin-bottom:6mm;">
+      <div style="font-family:{MONO};font-size:8px;color:{CENIZA};margin-bottom:6px;">Version actual</div>
+      <div style="font-family:{FAM};font-size:52px;font-weight:900;
+        color:{PAPEL};line-height:0.9;">v4<span style="color:{LACRE};font-size:64px;">.</span>0</div>
+      <div style="font-family:{MONO};font-size:8px;color:{CENIZA};margin-top:8px;">
+        Abril 2026 · TRAMARCA.<br>
+        Primera version completa con governance.
+      </div>
+    </div>
+    <div style="font-family:{MONO};font-size:9px;color:{PIEDRA};line-height:1.8;">
+      <span style="color:{LACRE};font-weight:700;">N</span> = cambio de sistema (logotipo, paleta, eje)<br>
+      <span style="color:{LACRE};font-weight:700;">.M</span> = extension o correccion (nueva aplicacion)<br>
+      <span style="color:{LACRE};font-weight:700;">.M.m</span> = fix puntual (errata, actualizacion dato)
+    </div>
+  </div>
+  <div>
+    <div class="eyebrow" style="margin-bottom:6mm;">Historial de versiones</div>
+    <div style="display:flex;flex-direction:column;gap:0;">
+      <div style="padding:4mm 0;border-bottom:0.5px solid {CENIZA};">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <span style="font-family:{FAM};font-size:13px;font-weight:700;color:{NEGRO};">v4.0</span>
+          <span style="font-family:{MONO};font-size:8px;color:{PIEDRA};">Abril 2026</span>
+        </div>
+        <div style="font-family:{FAM};font-size:10px;color:{PIEDRA};margin-top:1mm;line-height:1.5;">
+          Primera version con governance, tokens semanticos, axis declarado
+          y voz completa. Estructura alineada con matriz STRUCTURES.
+        </div>
+      </div>
+      <div style="padding:4mm 0;border-bottom:0.5px solid {CENIZA};opacity:0.6;">
+        <div style="display:flex;justify-content:space-between;align-items:baseline;">
+          <span style="font-family:{FAM};font-size:13px;font-weight:700;color:{NEGRO};">v3.0</span>
+          <span style="font-family:{MONO};font-size:8px;color:{PIEDRA};">Abril 2026</span>
+        </div>
+        <div style="font-family:{MONO};font-size:8px;color:{LACRE};margin-top:1mm;">OBSOLETA</div>
+        <div style="font-family:{FAM};font-size:10px;color:{PIEDRA};margin-top:1mm;">Identidad visual completa sin governance ni voice codificada.</div>
+      </div>
+    </div>
+    <div style="margin-top:6mm;padding:4mm 6mm;background:rgba(196,85,58,0.05);
+      border:0.5px dashed {LACRE};">
+      <div style="font-family:{MONO};font-size:8px;color:{LACRE};margin-bottom:2mm;">Para solicitar actualizacion</div>
+      <div style="font-family:{FAM};font-size:10px;color:{NEGRO};">hola@tramarca.es</div>
+    </div>
+  </div>
+</div>"""
+    return page_shell(body, 41, section="XI · Operaciones", bg=PAPEL)
+
+
+def p32k_legal():
+    """O3 — Marco legal. Trademark, uso correcto, prohibiciones."""
+    usos_ok = [
+        "Materiales de comunicacion de la empresa propietaria del manual.",
+        "Presentaciones internas y externas del equipo.",
+        "Colaboraciones y partnerships con mencion a la fuente.",
+        "Prensa y medios con cita al propietario de la marca.",
+    ]
+    usos_no = [
+        "Uso por terceros sin autorizacion escrita del titular.",
+        "Modificacion de colores, proporciones o tipografia del logo.",
+        "Aplicacion sobre fondos que comprometan la legibilidad.",
+        "Combinacion con otras marcas sin acuerdo formal de co-branding.",
+        "Generacion de versiones alternativas con IA u otras herramientas.",
+    ]
+    ok_html = "".join(
+        f'<div style="padding:2mm 0;border-bottom:0.5px solid rgba(196,85,58,0.2);'
+        f'font-family:{FAM};font-size:10px;color:{NEGRO};line-height:1.4;">'
+        f'<span style="color:{LACRE};margin-right:4px;">✓</span>{t}</div>'
+        for t in usos_ok
+    )
+    no_html = "".join(
+        f'<div class="struck" style="padding:2mm 0;border-bottom:0.5px solid {CENIZA};'
+        f'font-family:{FAM};font-size:10px;color:{PIEDRA};line-height:1.4;">{t}</div>'
+        for t in usos_no
+    )
+    body = f"""\
+<div style="position:absolute;left:24mm;top:28mm;right:24mm;bottom:20mm;
+  display:grid;grid-template-columns:1fr 1fr;gap:14mm;">
+  <div>
+    {titulo("Marco legal", 34)}
+    <div style="font-family:{FAM};font-size:11px;color:{PIEDRA};line-height:1.6;margin-bottom:6mm;">
+      La marca es propiedad intelectual del titular.
+      Este manual no transfiere derechos — los codifica para uso correcto<span style="color:{LACRE};">.</span>
+    </div>
+    <div style="background:{NEGRO};padding:12px 16px;margin-bottom:6mm;">
+      <div style="font-family:{MONO};font-size:8px;color:{CENIZA};margin-bottom:6px;letter-spacing:1px;">TRADEMARK</div>
+      <div style="font-family:{FAM};font-size:11px;color:{PAPEL};line-height:1.5;">
+        Todos los elementos visuales y verbales codificados en este manual
+        son propiedad exclusiva de su titular. Uso no autorizado puede
+        constituir infraccion de marca registrada.
+      </div>
+    </div>
+    <div style="font-family:{MONO};font-size:9px;color:{PIEDRA};line-height:1.8;">
+      Para licencias, co-branding o uso excepcional:<br>
+      <span style="color:{LACRE};">hola@tramarca.es</span>
+    </div>
+  </div>
+  <div>
+    <div class="eyebrow" style="color:{'#2E7D32'};margin-bottom:3mm;">Uso permitido</div>
+    {ok_html}
+    <div style="margin-top:6mm;"></div>
+    <div class="eyebrow" style="color:{LACRE};margin-bottom:3mm;">Uso prohibido</div>
+    {no_html}
+  </div>
+</div>"""
+    return page_shell(body, 42, section="XI · Operaciones", bg=PAPEL)
+
+
+def p32l_tldr():
+    """V9 — TL;DR. La marca en 10 reglas. La pagina mas consultada."""
+    reglas = [
+        "La marca es un sistema de decisiones, no un logo.",
+        "Negro e/ primer color. Lacre es la firma, nunca el fondo.",
+        "Satoshi para todo. Mono para lo tecnico. Nada mas.",
+        "Frases cortas. Punto final. Sin exclamaciones.",
+        "El logo no se altera. El logo no se regenera con IA.",
+        "Cada color tiene un token semantico. Usa el token, no el hex.",
+        "La diagonal lacre aparece una vez por pieza. Solo una.",
+        "El ruido (noise) vive en fondos oscuros. Nunca en papel.",
+        "Cambiar algo del sistema requiere version nueva del manual.",
+        "Si suena corporativo, reescribelo. Si suena a Tramarca, punto.",
+    ]
+    reglas_html = ""
+    for i, r in enumerate(reglas, 1):
+        reglas_html += f"""\
+<div style="display:flex;gap:4mm;align-items:baseline;
+  padding:3.5mm 0;border-bottom:0.5px solid rgba(181,177,172,0.2);">
+  <span style="font-family:{MONO};font-size:9px;font-weight:700;
+    color:{LACRE};flex-shrink:0;">{i:02d}</span>
+  <span style="font-family:{FAM};font-size:12px;font-weight:500;
+    color:{PAPEL};line-height:1.4;">{r}</span>
+</div>"""
+
+    body = f"""\
+<div class="noise-heavy" style="position:absolute;inset:0;opacity:0.5;"></div>
+<div style="position:absolute;left:24mm;top:28mm;right:24mm;bottom:20mm;">
+  <div style="display:grid;grid-template-columns:1fr 1.4fr;gap:14mm;">
+    <div>
+      {titulo("TL;DR", 52, color=PAPEL)}
+      <div style="font-family:{FAM};font-size:13px;color:rgba(244,240,235,0.7);
+        line-height:1.6;margin-bottom:6mm;">
+        Si solo lees una pagina de este manual,
+        que sea esta<span style="color:{LACRE};font-size:18px;">.</span>
+      </div>
+      <div style="font-family:{MONO};font-size:8px;color:{CENIZA};
+        letter-spacing:1px;text-transform:uppercase;margin-bottom:3mm;">
+        La marca en 10 reglas
+      </div>
+      <div style="width:24mm;height:0.5px;background:{LACRE};
+        transform:rotate(-4deg);margin-top:6mm;"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0;">
+      {reglas_html}
+    </div>
+  </div>
+</div>"""
+    return page_shell(body, 43, section="V9 · TL;DR", bg=NEGRO, dark=True)
 
 
 # ══════════════════════════════════════════════════════════════
@@ -1842,9 +2416,22 @@ def build():
         p31_social_proposal(),     # 31
         # X Portfolio
         p32_portfolio(),           # 32
+        # ── TRAMARCA v4 — NUEVOS CAPÍTULOS ──────────────────────
+        p32b_axis_declaration(),   # 33  F7  Positioning Axis
+        p32c_tokens_semanticos(),  # 34  S6  Tokens semánticos
+        p32d_what_we_are(),        # 35  V3  What we are / aren't
+        p32e_antipatrones(),       # 36  V6  Anti-patterns de copywriting
+        p32f_primitivos_graficos(),# 37  I7  Primitivos gráficos
+        p32g_editorial_guidelines(),# 38 A8  Guía editorial
+        p32h_operations_divider(), # 39  —   XI Operaciones divider
+        p32i_governance(),         # 40  O1  Governance
+        p32j_versioning(),         # 41  O2  Versionado N.M
+        p32k_legal(),              # 42  O3  Marco legal
+        p32l_tldr(),               # 43  V9  TL;DR (10 reglas)
+        # ──────────────────────────────────────────────────────────
         # Cierre
-        p33_contact(),             # 33
-        p34_back_cover(),          # 34
+        p33_contact(),             # 44
+        p34_back_cover(),          # 45
     ]
 
     assert len(pages) == TOTAL, f"Expected {TOTAL} pages, got {len(pages)}"
