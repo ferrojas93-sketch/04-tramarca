@@ -11,13 +11,15 @@ from __future__ import annotations
 # ═══════════════════════════════════════════════════════════════
 
 # Colors — El Punto Final
-NEGRO  = "#0C0C0C"
-CARBON = "#1C1C1C"
-LACRE  = "#C4553A"
-PIEDRA = "#7A7672"
-CENIZA = "#B5B1AC"
-ARENA  = "#E4E2DC"
-PAPEL  = "#F4F0EB"
+# PIEDRA darkened 2026-04 post WCAG AA audit (ratio 3.6→5.2)
+NEGRO        = "#0C0C0C"
+CARBON       = "#1C1C1C"
+LACRE        = "#C4553A"
+PIEDRA       = "#5E5A57"  # AA compliant for text
+PIEDRA_LIGHT = "#7A7672"  # decorative only, non-text
+CENIZA       = "#B5B1AC"
+ARENA        = "#E4E2DC"
+PAPEL        = "#F4F0EB"
 
 # Typography
 FAM = "'Satoshi', -apple-system, system-ui, sans-serif"
@@ -30,26 +32,35 @@ FONT_LINKS = """\
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;700&display=swap">"""
 
-# Identity
+# Identity — v4 aligned to tramarca.es /sobre + /home
 BRAND      = "TRAMARCA"
-DESCRIPTOR = "Tu marca, sin improvisar."
-EDITION    = "Primera edición · Abril 2026"
-TOTAL      = 45   # v4 — 11 páginas nuevas añadidas (F7/S6/V3/V6/I7/A8/O1/O2/O3/V9 + divider)
+DESCRIPTOR = "Un estudio que solo hace manuales."  # /sobre H1
+TAGLINE    = "Tu marca, por escrito."               # /home H1
+EDITION    = "Primera edición · 2026"
+MASTHEAD   = "Manuales de marca · Por escrito · Desde 2026"
+CITY       = "Madrid · España"
+TOTAL      = 58   # v4 — anatomy-aligned to 12 chapters + personas data-viz + TL;DR
 
-# Sections — v3 condensada (34 páginas)
+# Sections — v4 aligned to tramarca.es /anatomia 12 chapters + editorial frame
 SECTIONS = [
-    {"n": "00", "r": "",     "title": "Apertura",           "pages": (1, 2)},
-    {"n": "01", "r": "I",    "title": "Provocación",        "pages": (3, 4)},
-    {"n": "02", "r": "II",   "title": "Fundamentos",        "pages": (5, 8)},
-    {"n": "03", "r": "III",  "title": "Servicio",           "pages": (9, 11)},
-    {"n": "04", "r": "IV",   "title": "Identidad visual",   "pages": (12, 16)},
-    {"n": "05", "r": "V",    "title": "Color",              "pages": (17, 18)},
-    {"n": "06", "r": "VI",   "title": "Tipografía",         "pages": (19, 21)},
-    {"n": "07", "r": "VII",  "title": "Voz",                "pages": (22, 24)},
-    {"n": "08", "r": "VIII", "title": "Dirección de arte",  "pages": (25, 26)},
-    {"n": "09", "r": "IX",   "title": "Aplicaciones",       "pages": (27, 31)},
-    {"n": "10", "r": "X",    "title": "Portfolio",           "pages": (32, 32)},
-    {"n": "11", "r": "",     "title": "Cierre",             "pages": (33, 34)},
+    {"n": "00",  "r": "",      "title": "Apertura",             "pages": (1, 5),   "fid": "FIEL"},
+    {"n": "01",  "r": "I",     "title": "Provocación",          "pages": (6, 9),   "fid": "FIEL"},
+    {"n": "02",  "r": "II",    "title": "Personas",             "pages": (10, 13), "fid": "PROPUESTA"},
+    {"n": "03",  "r": "III",   "title": "Fundamentos",          "pages": (14, 18), "fid": "PROPUESTA"},
+    {"n": "04",  "r": "IV",    "title": "Sistema de logo",      "pages": (19, 23), "fid": "PROPUESTA"},
+    {"n": "05",  "r": "V",     "title": "Tipografía",           "pages": (24, 26), "fid": "FIEL"},
+    {"n": "06",  "r": "VI",    "title": "Color",                "pages": (27, 29), "fid": "FIEL"},
+    {"n": "07",  "r": "VII",   "title": "Iconografía",          "pages": (30, 31), "fid": "PROPUESTA"},
+    {"n": "08",  "r": "VIII",  "title": "Fotografía",           "pages": (32, 33), "fid": "PROPUESTA"},
+    {"n": "09",  "r": "IX",    "title": "Voz y tono",           "pages": (34, 36), "fid": "PROPUESTA"},
+    {"n": "10",  "r": "X",     "title": "Aplicaciones",         "pages": (37, 41), "fid": "PROPUESTA"},
+    {"n": "11",  "r": "XI",    "title": "Arquitectura",         "pages": (42, 43), "fid": "PROPUESTA"},
+    {"n": "12",  "r": "XII",   "title": "Governance",           "pages": (44, 46), "fid": "PROPUESTA"},
+    {"n": "13",  "r": "XIII",  "title": "Marca en movimiento",  "pages": (47, 48), "fid": "INVENTADO"},
+    {"n": "14",  "r": "XIV",   "title": "Extensiones",          "pages": (49, 51), "fid": "PROPUESTA"},
+    {"n": "15",  "r": "XV",    "title": "Servicio",             "pages": (52, 55), "fid": "FIEL"},
+    {"n": "16",  "r": "XVI",   "title": "Portfolio",            "pages": (56, 56), "fid": "FIEL"},
+    {"n": "17",  "r": "",      "title": "Cierre",               "pages": (57, 58), "fid": "FIEL"},
 ]
 
 
@@ -143,9 +154,8 @@ p {{ margin: 0; }}
     font-family: {MONO};
     font-size: 11px;
     line-height: 2.2;
-    background: {ARENA};
-    padding: 14px 18px;
-    border-left: 4px solid {LACRE};
+    padding: 6px 0 6px 14px;
+    border-left: 3px solid {LACRE};
 }}
 .db .lbl {{
     display: inline-block;
@@ -397,35 +407,27 @@ p {{ margin: 0; }}
     opacity: 0.7;
 }}
 
-/* ── Mockup shadow system ── */
+/* ── Mockup frame system (no box-shadow — Chromium renders it as solid grey rectangle in PDF print).
+       Use borders only. ── */
 .mockup-shadow {{
-    box-shadow:
-        0 25px 50px -12px rgba(12,12,12,0.25),
-        0 12px 24px -8px rgba(12,12,12,0.15),
-        0 4px 8px rgba(12,12,12,0.1);
+    border: 0.5px solid {CENIZA};
 }}
 .mockup-deep-shadow {{
-    box-shadow:
-        0 50px 100px -20px rgba(12,12,12,0.4),
-        0 25px 50px -12px rgba(12,12,12,0.3),
-        0 12px 24px rgba(12,12,12,0.15);
+    border: 0.75px solid {CENIZA};
 }}
 
 /* ── Invoice / document mockup ── */
 .doc-mockup {{
-    background: #fff;
-    box-shadow:
-        0 30px 80px rgba(12,12,12,0.5),
-        0 15px 30px rgba(12,12,12,0.3);
-    border: 0.5px solid rgba(244,240,235,0.06);
+    background: {PAPEL};
+    border: 0.5px solid {CENIZA};
 }}
 
-/* ── Browser chrome (email, web) ── */
+/* ── Browser chrome (email, web) — minimal editorial, no grey fill ── */
 .browser-chrome {{
-    height: 8mm;
-    background: {ARENA};
-    border: 1px solid {CENIZA};
-    border-bottom: none;
+    height: 7mm;
+    background: {PAPEL};
+    border: 0.5px solid {CENIZA};
+    border-bottom: 0.5px solid {CENIZA};
     display: flex;
     align-items: center;
     padding: 0 4mm;
@@ -459,6 +461,147 @@ p {{ margin: 0; }}
 /* ── Dark gradient backdrop for mockup pages ── */
 .mockup-backdrop {{
     background: linear-gradient(160deg, {CARBON} 0%, {NEGRO} 60%, rgba(196,85,58,0.05) 100%);
+}}
+
+/* ═══ v4 additions — Shamusic v6 playbook patterns ═══ */
+
+/* ── Fidelity badge — FIEL / PROPUESTA / INVENTADO ── */
+.badge-fidelidad {{
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: {MONO};
+    font-size: 6.5px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 2px;
+    line-height: 1.2;
+}}
+.badge-fiel       {{ background: rgba(12,12,12,0.08); color: {NEGRO}; }}
+.badge-propuesta  {{ background: rgba(196,85,58,0.15); color: {LACRE}; border: 0.5px solid {LACRE}; }}
+.badge-inventado  {{ background: rgba(122,118,114,0.15); color: {PIEDRA}; border: 0.5px dashed {PIEDRA}; }}
+/* Dark-page variants */
+.badge-fiel-dark      {{ background: rgba(244,240,235,0.1); color: {PAPEL}; }}
+.badge-propuesta-dark {{ background: rgba(196,85,58,0.25); color: {PAPEL}; border: 0.5px solid {LACRE}; }}
+
+/* ── Stat card tensional (personas data-viz) ── */
+.stat-tensional {{
+    min-height: 22mm;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 4mm 5mm 3mm 5mm;
+    background: rgba(12,12,12,0.04);
+    border-left: 3px solid {LACRE};
+    position: relative;
+}}
+.stat-tensional .big {{
+    font-family: {FAM};
+    font-size: 38px;
+    font-weight: 900;
+    line-height: 0.9;
+    color: {NEGRO};
+    letter-spacing: -1px;
+    font-variant-numeric: tabular-nums;
+}}
+.stat-tensional .big .unit {{
+    font-size: 22px;
+    color: {LACRE};
+    letter-spacing: 0;
+}}
+.stat-tensional .label {{
+    font-family: {MONO};
+    font-size: 7px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: {PIEDRA};
+    line-height: 1.3;
+    margin-top: 2mm;
+}}
+.stat-tensional .bar {{
+    height: 2px;
+    background: {CENIZA};
+    margin: 3mm 0 1mm 0;
+    position: relative;
+}}
+.stat-tensional .bar::before {{
+    content: '';
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: {LACRE};
+}}
+
+/* ── Number watermark outline (persona pages) ── */
+.watermark-outline {{
+    position: absolute;
+    font-family: {FAM};
+    font-weight: 900;
+    font-size: 140pt;
+    line-height: 0.78;
+    color: transparent;
+    -webkit-text-stroke: 1px {CENIZA};
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+}}
+
+/* ── Timeline 24h horizontal bar ── */
+.timeline-24h {{
+    display: flex;
+    width: 100%;
+    height: 10mm;
+    border: 0.5px solid {CENIZA};
+    position: relative;
+    font-family: {MONO};
+    font-size: 6.5px;
+    letter-spacing: 0.5px;
+}}
+.timeline-24h .block {{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: {PAPEL};
+    text-transform: uppercase;
+    font-weight: 700;
+    border-right: 0.5px solid rgba(244,240,235,0.15);
+    overflow: hidden;
+    white-space: nowrap;
+}}
+.timeline-24h .block:last-child {{ border-right: none; }}
+.timeline-24h .tick {{
+    position: absolute;
+    top: 100%;
+    font-family: {MONO};
+    font-size: 6.5px;
+    color: {PIEDRA};
+    transform: translateX(-50%);
+    margin-top: 1mm;
+    font-variant-numeric: tabular-nums;
+}}
+
+/* ── Metastrip hard-lock (survives .grain > * override bug) ── */
+.metastrip {{
+    position: absolute !important;
+    z-index: 99 !important;
+    bottom: 11mm;
+    left: 24mm;
+    right: 24mm;
+    border-top: 0.5px solid {CENIZA};
+    padding-top: 3mm;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    font-family: {MONO};
+    font-size: 7px;
+    color: {PIEDRA};
+    letter-spacing: 0.5px;
+}}
+.metastrip.dark {{
+    border-top-color: rgba(244,240,235,0.12);
+    color: rgba(244,240,235,0.45);
 }}
 """
 
@@ -506,15 +649,28 @@ def page_shell(body: str, pg: int, *,
 # ═══════════════════════════════════════════════════════════════
 
 def divider(arabic: str, roman: str, title: str,
-            subtitle: str = "", pg: int = 0) -> str:
-    """Dark full-bleed section divider — cinematic, asymmetric, brutal."""
+            subtitle: str = "", pg: int = 0, img: str = "") -> str:
+    """Dark full-bleed section divider — cinematic, asymmetric, brutal.
+    Optional image backdrop: opacity 0.32 + diagonal midnight gradient overlay."""
+    # Photographic backdrop layer — prominent, full-bleed (Shamusic style)
+    photo = ""
+    if img:
+        photo = f"""\
+<div style="position:absolute;inset:0;overflow:hidden;background:{NEGRO};">
+  <img src="{img}" style="width:100%;height:100%;object-fit:cover;
+    opacity:0.92;filter:grayscale(22%) contrast(1.08) brightness(0.78);" alt="">
+</div>
+<div style="position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(12,12,12,0.15) 0%,rgba(12,12,12,0) 30%,rgba(12,12,12,0.2) 55%,rgba(12,12,12,0.88) 100%);
+  pointer-events:none;"></div>"""
+
     # Giant number bleeds off right edge
     wm = ""
     if arabic and arabic != "00":
         wm = f"""\
 <div style="position:absolute;right:-30mm;top:-20mm;
   font-family:{FAM};font-size:800px;font-weight:900;
-  color:rgba(244,240,235,0.03);line-height:0.7;
+  color:rgba(244,240,235,0.035);line-height:0.7;
   pointer-events:none;user-select:none;">{arabic}</div>"""
 
     # Roman numeral as floating vertical label
@@ -542,7 +698,7 @@ def divider(arabic: str, roman: str, title: str,
     bar = f'<div style="width:5px;height:40mm;background:{LACRE};margin-bottom:10mm;"></div>'
 
     content = f"""\
-{wm}{eye}{slash}
+{photo}{wm}{eye}{slash}
 <div style="position:absolute;left:30mm;bottom:30mm;">
   {bar}
   <div style="font-family:{FAM};font-size:110px;font-weight:900;
@@ -552,7 +708,7 @@ def divider(arabic: str, roman: str, title: str,
   {sub}
 </div>
 <div style="position:absolute;right:30mm;bottom:30mm;text-align:right;">
-  <div style="font-family:{MONO};font-size:9px;color:rgba(244,240,235,0.3);letter-spacing:2px;">
+  <div style="font-family:{MONO};font-size:9px;color:rgba(244,240,235,0.35);letter-spacing:2px;">
     {pg:02d} / {TOTAL}
   </div>
 </div>"""
@@ -596,7 +752,7 @@ def accent_rule(w: int = 80, mt: str = "8mm") -> str:
 
 def arena_panel(content: str, padding: str = "18px 22px") -> str:
     """Content block on Arena background."""
-    return f'<div style="background:{ARENA};padding:{padding};">{content}</div>'
+    return f'<div style="background:transparent;border-left:3px solid {LACRE};padding:{padding};padding-left:14px;">{content}</div>'
 
 
 def body_text(text: str, max_w: str = "220mm") -> str:
@@ -673,6 +829,69 @@ def html_wrap(pages: list[str]) -> str:
 {"".join(pages)}
 </body>
 </html>"""
+
+
+def fidelity_badge(kind: str, *, dark: bool = False) -> str:
+    """Fidelity tag — disabled per feedback 2026-04-17. Now returns empty string."""
+    return ""
+
+
+def stat_tensional(big: str, unit: str, label: str, fill_pct: int = 60) -> str:
+    """Tension stat card — big number + unit + label + bar indicator."""
+    return f"""\
+<div class="stat-tensional">
+  <div class="big">{big}<span class="unit">{unit}</span></div>
+  <div class="bar" style="--fill:{fill_pct}%;">
+    <style>.stat-tensional .bar::before {{ width: var(--fill); }}</style>
+  </div>
+  <div class="label">{label}</div>
+</div>"""
+
+
+def timeline_24h(blocks: list[tuple[int, str, str, str]]) -> str:
+    """24h horizontal timeline. blocks: [(hours, label, bg, fg?), ...].
+    hours must sum to 24."""
+    total = sum(h for h, *_ in blocks)
+    if total != 24:
+        # normalize defensively
+        total = 24
+    segs = []
+    cursor = 0
+    ticks = []
+    for h, lbl, bg, *rest in blocks:
+        pct = h / 24 * 100
+        fg = rest[0] if rest else PAPEL
+        show_label = h >= 4
+        segs.append(
+            f'<div class="block" style="width:{pct}%;background:{bg};color:{fg};">'
+            f'{lbl if show_label else ""}</div>'
+        )
+        cursor += h
+        ticks.append((cursor, cursor))
+    tick_html = "".join(
+        f'<span class="tick" style="left:{c/24*100}%;">{c:02d}:00</span>'
+        for c, _ in ticks[:-1]
+    )
+    return f'<div class="timeline-24h" style="margin-bottom:6mm;">{"".join(segs)}{tick_html}</div>'
+
+
+def watermark_number(num: str, *, right: str = "18mm", top: str = "30mm") -> str:
+    """Outline number watermark for persona pages (220pt Satoshi Black outline)."""
+    return f"""\
+<div class="watermark-outline" style="right:{right};top:{top};">{num}</div>"""
+
+
+def metastrip(pg: int, section: str = "", *, dark: bool = False) -> str:
+    """Always-on metastrip — foot-of-page chrome.
+    Uses .metastrip class with !important to survive .grain > * override bug."""
+    cls = "metastrip dark" if dark else "metastrip"
+    mc = f"rgba(244,240,235,0.45)" if dark else PIEDRA
+    return f"""\
+<div class="{cls}">
+  <span>{BRAND}<span style="color:{LACRE};">.</span> · Manual de marca</span>
+  <span style="text-transform:uppercase;letter-spacing:2px;">{section}</span>
+  <span>{pg:02d} / {TOTAL}</span>
+</div>"""
 
 
 def generate_pdf(html_path: str, pdf_path: str) -> None:

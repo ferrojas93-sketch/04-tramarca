@@ -4,6 +4,7 @@ dist/*.html
 
 # QA screenshots (regenerables)
 dist/v3-qa*/
+dist/qa/
 
 # Python
 __pycache__/

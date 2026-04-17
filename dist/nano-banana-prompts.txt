@@ -1,0 +1,159 @@
+╔══════════════════════════════════════════════════════════════════╗
+║  TRAMARCA MANUAL v4 · PROMPTS NANO-BANANA (Gemini 2.5 Flash)      ║
+║  8 slots de imagen editorial — tono contemporáneo, no nostálgico  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+REGLAS COMUNES (pegar al final de cada prompt si hace falta):
+— aspect ratio 3:2 landscape, high detail, editorial photography,
+  contemporary minimal, flat diffused light, desaturated neutrals,
+  absolutely no text no typography no letters visible in the image,
+  no golden hour, no warm nostalgia, no letterpress, no vintage patina.
+— paleta objetivo: warm off-white paper (#F4F0EB), matte black (#0C0C0C),
+  muted concrete grey (#5E5A57), single accent of terracotta-sealing-wax red (#C4553A).
+
+═══════════════════════════════════════════════════════════════════
+SLOT 01 · p06 · FUNDAMENTOS (divider capítulo I)
+═══════════════════════════════════════════════════════════════════
+
+Macro photograph of a single drop of terracotta sealing wax (#C4553A)
+on a sheet of uncoated warm off-white cotton paper. The wax has just
+set — clean circular edge, slightly domed, matte finish. Paper texture
+visible: subtle tooth, no grain, no patina. Lighting is flat, cold
+daylight from a north-facing window. Background is empty paper filling
+the frame. The wax dot sits left-of-center. Minimal, editorial, Kinfolk
+2024 by way of Pentagram. Shallow depth of field only on paper fibers.
+3:2 landscape.
+
+═══════════════════════════════════════════════════════════════════
+SLOT 02 · p15 · LOGO (divider capítulo IV)
+═══════════════════════════════════════════════════════════════════
+
+Extreme macro of a single lowercase period "." debossed into matte
+black cardstock (300gsm, uncoated). The deboss is deep, clean, casting
+a crisp shadow inside the well. Surrounding surface is pure matte
+black with subtle fiber texture. Lighting is raking from the left at
+15 degrees, revealing the deboss depth. Cold, architectural,
+contemporary editorial still-life — think Stripe Press monograph cover.
+No other marks visible. 3:2 landscape, centered composition with
+generous negative space.
+
+═══════════════════════════════════════════════════════════════════
+SLOT 03 · p28 · COLOR (divider capítulo VI)
+═══════════════════════════════════════════════════════════════════
+
+Overhead flat-lay on polished concrete surface: eight rectangular
+paper swatches arranged in two tight rows of four, slightly
+overlapping at the edges. Swatches are matte uncoated paper in these
+exact tones in order: deep black, charcoal grey, terracotta red,
+warm taupe, cool grey, light stone grey, warm sand, warm off-white
+cream. Each swatch is roughly 80×50mm. Cast shadow is very soft from
+diffuse overhead daylight. Concrete background shows subtle aggregate
+texture. No labels, no text, no hand visible. Editorial, reductive,
+contemporary. 3:2 landscape.
+
+═══════════════════════════════════════════════════════════════════
+SLOT 04 · p31 · ICONOGRAFÍA (divider capítulo V)
+═══════════════════════════════════════════════════════════════════
+
+Close-up photograph of a brushed stainless steel plate (20×15cm)
+lying flat, with eight simple line-art icons etched into its surface
+in a 4×2 grid. Icons are abstract: circle, square, arrow, dot,
+horizontal line, vertical line, plus sign, triangle outline. Each
+icon occupies roughly the same 2cm square. Etching is shallow and
+precise, visible as a subtle shadow in the steel. Lighting is flat
+overhead fluorescent daylight, producing a muted reflection without
+hotspots. Steel surface shows fine brushed grain. Cold, industrial,
+swiss-modern, no patina, no hands. 3:2 landscape.
+
+═══════════════════════════════════════════════════════════════════
+SLOT 05 · p33-34 · FOTOGRAFÍA (2 editoriales complementarias)
+═══════════════════════════════════════════════════════════════════
+
+→ IMAGEN 5A (bookends existing moodboard):
+Overhead flat-lay on a concrete-grey desk surface. Objects arranged
+in a loose editorial composition: a single matte-black hardcover A4
+book lying closed and horizontal, a terracotta red ceramic coaster
+(plain, no markings), a short stack of two uncoated off-white paper
+sheets, and a single black mechanical pencil. No hands, no clutter,
+no labels. Light is flat, cold, from directly above. The composition
+reads "studio of a brand editor in Madrid, 2026". Contemporary
+minimal. 3:2 landscape.
+
+→ IMAGEN 5B:
+Medium-close photograph of a single matte-black A4 landscape book
+standing closed on its edge against a warm off-white paper backdrop.
+The book's cover is completely blank (no text, no logo, no mark of
+any kind). A single small terracotta dot is visible on the spine —
+about 8mm diameter, dead center. Lighting is flat, diffused,
+cold-neutral. Background is an empty paper wall. Shallow depth of
+field on the book's edge. Editorial, reductive, Pentagram-adjacent.
+3:2 landscape.
+
+═══════════════════════════════════════════════════════════════════
+SLOT 06 · p35 · VOZ Y TONO (divider capítulo VII)
+═══════════════════════════════════════════════════════════════════
+
+Close-up of a single sheet of uncoated warm off-white paper lying
+flat, crossed by a single crisp horizontal line of typewritten
+characters in black ink — but every letter is an abstract typographic
+mark (asterisks, dashes, slashes, dots) so NO words are legible. The
+line is tight, monospaced, dense. Around it, empty paper fills the
+frame. Lighting is flat, cold daylight. The effect reads "the act of
+writing, rigorously". No text should be readable. Editorial still-life,
+contemporary. 3:2 landscape.
+
+═══════════════════════════════════════════════════════════════════
+SLOT 07 · p40 · APLICACIONES (divider capítulo X)
+═══════════════════════════════════════════════════════════════════
+
+Overhead flat-lay on a warm off-white paper surface: one A4 landscape
+kraft-paper folder (brown, 300gsm, matte, clean edges) lying
+horizontally, slightly angled 5 degrees off-axis. On top of the
+folder, a matte-black hardcover book (A4 landscape) sits partially
+overlapping its right edge. To the right of the composition, one
+small sheet of paper with a single deep-red wax seal (circular, ~3cm).
+No text, no labels, no logo, no hand. Light is flat cold daylight
+from above. Composition reads "what a Tramarca Premium delivery looks
+like". Contemporary editorial, no nostalgia, no golden tone. 3:2
+landscape.
+
+═══════════════════════════════════════════════════════════════════
+SLOT 08 · p47 · MARCA EN MOVIMIENTO (divider capítulo XIII)
+═══════════════════════════════════════════════════════════════════
+
+Architectural still-life: a single 1-meter-wide matte black rectangle
+mounted flush on a cold grey concrete wall in Madrid. The concrete is
+polished but raw — subtle staining, no cracks. A single terracotta
+red thin vertical line (1cm wide, 40cm tall) is painted onto the
+black rectangle, aligned to the right third. Lighting is flat cold
+afternoon light, north-facing. No people, no text, no brand marks
+visible. Ambient Madrid urban context barely implied. Feels like a
+still from a corporate brand video — clinical, calm, present-tense.
+Stripe Press meets Herzog & de Meuron. 3:2 landscape.
+
+═══════════════════════════════════════════════════════════════════
+WORKFLOW RECOMENDADO
+═══════════════════════════════════════════════════════════════════
+
+1. Abrir nano-banana (Gemini 2.5 Flash image) en gemini.google.com
+2. Pegar cada prompt tal cual, sin modificar.
+3. Generar 2-3 variantes por slot.
+4. Descargar la mejor como:
+   /Users/fer/Projects/claude/brand-manuals/04-tramarca/assets/img/
+   con los nombres:
+   p06-fundamentos.jpg
+   p15-logo.jpg
+   p28-color.jpg
+   p31-iconografia.jpg
+   p33-foto-5a.jpg
+   p34-foto-5b.jpg
+   p35-voz.jpg
+   p40-aplicaciones.jpg
+   p47-motion.jpg
+
+5. Avísame cuando estén y hago el wiring en build_v4.py para cada
+   divider (sutil, opacity 0.25, sin tapar roman numeral).
+
+═══════════════════════════════════════════════════════════════════
+FIN · 8 prompts · 9 imágenes (slot 5 = 2 variantes)
+═══════════════════════════════════════════════════════════════════
